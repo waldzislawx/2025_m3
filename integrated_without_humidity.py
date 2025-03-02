@@ -21,7 +21,7 @@ time_array = np.arange(n_times)*dt
 
 #parameters and functions
 storey_height = 3.0
-u_uninsulated = 2.0
+u_uninsulated = 2
 u_insulated   = 0.18
 
 #dwellings data
@@ -36,11 +36,14 @@ storey_n   = int(dwellings['Home 1'].iloc[3])
 floor_total= int(dwellings['Home 1'].iloc[5])
 floor_A    = floor_total / storey_n
 A          = 4*storey_height*storey_n + floor_A   # uninsulated logic
+
 U          = u_uninsulated
 
 # Convert kJ -> J
-C_kJ = float(dwellings['Home 1'].iloc[7])
-C    = C_kJ * 1000.0
+C_kJ = 1.006
+C    = C_kJ * 1000
+
+
 
 UA_over_C = (U*A)/C
 
@@ -69,7 +72,7 @@ A          = 4*storey_height*storey_n + floor_A   # insulated logic
 U          = u_insulated
 
 # Convert kJ -> J
-C_kJ = float(dwellings['Home 2'].iloc[7])
+C_kJ = 1.006
 C    = C_kJ * 1000.0
 
 UA_over_C = (U*A)/C
@@ -98,7 +101,7 @@ floor_A    = floor_total / storey_n
 A          = 4*storey_height*storey_n + floor_A
 U          = u_insulated  # also insulated
 
-C_kJ = float(dwellings['Home 3'].iloc[7])
+C_kJ = 1.006
 C    = C_kJ * 1000.0
 
 UA_over_C = (U*A)/C
@@ -127,7 +130,7 @@ floor_A    = floor_total / storey_n
 A          = 2*storey_height*storey_n + floor_A   # different logic
 U          = u_uninsulated
 
-C_kJ = float(dwellings['Home 4'].iloc[7])
+C_kJ = 1.006
 C    = C_kJ * 1000.0
 
 UA_over_C = (U*A)/C
@@ -151,3 +154,4 @@ plt.grid(True)
 
 # SHOW ALL PLOTS
 plt.show()
+
